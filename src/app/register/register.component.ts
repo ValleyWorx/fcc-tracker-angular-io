@@ -9,9 +9,9 @@ import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 export class RegisterComponent implements OnInit {
   public LoginForm: FormGroup
   public ErrorMessage: string = null;
-  private PasswordsValid: boolean = false;
+  public PasswordsValid: boolean = false;
 
-  constructor(private fb: FormBuilder) {
+  constructor(public fb: FormBuilder) {
     this.LoginForm = this.fb.group ({
       email: ['', [Validators.email, Validators.required]],
       password: ['', [Validators.required]],
@@ -64,10 +64,7 @@ export class RegisterComponent implements OnInit {
         } else {
           return false;
         }
-        return false;
       }
-    } else {
-      return false;
     }
   }
 }
