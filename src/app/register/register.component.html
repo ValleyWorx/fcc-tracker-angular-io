@@ -1,0 +1,19 @@
+<!-- <page-header>Register</page-header> -->
+
+<div class="container-fluid">
+  <div class="row d-flex justify-content-center align-items-center fullscreen">
+    <form [formGroup] = "LoginForm">
+  <h2 class="text-center mb-4">Register</h2>
+
+Email Address:  <input formControlName = "email" type="text" name="email" value="john@example.com"><br>
+Password: <input formControlName = "password" type="password" name="password" value=""><br>
+Re-enter Password: <input formControlName = "repassword" type="password" name="repassword" value=""><br>
+<button [disabled] = "!formIsValid()" (click) = "register()">Register</button>
+    </form>
+
+    <p *ngIf = "ErrorMessage">{{ErrorMessage}}</p>
+
+  </div>
+</div>
+
+<!-- <page-footer></page-footer> -->
