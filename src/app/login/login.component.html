@@ -2,13 +2,15 @@
 
 <div class="container-fluid">
   <div class="row d-flex justify-content-center align-items-center fullscreen">
-    <form [formGroup]="someForm" (submit)="func()">
+    <form [formGroup]="loginForm">
       <h2 class="text-center mb-4">Log in</h2>
-      <input type="email" id="emailtest">
-      <label for="emailtest">Email: </label>
-      <input type="password" id="passwordtest">
-      <label for="passwordtest">Password: </label>
-
+        <!-- eventually replace with Chelsea's components v -->
+          <input formControlName="email" type="email" id="emailtest">
+          <label for="emailtest">Email: </label>
+          <input formControlName="password" type="password" id="passwordtest">
+          <label for="passwordtest">Password: </label>
+          <button [disabled]="!loginForm.valid" (click)="login()" type="button">Login</button>
+        <!-- ^ ^ -->
 
 
     </form>
