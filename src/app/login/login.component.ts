@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { RestService } from '../services/rest.service';
+import { AuthService } from '../services/auth.service';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +12,12 @@ import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
 
-  constructor(private formbuilder: FormBuilder) {
+  constructor(
+        //aliases. Class-level variables.
+        private formbuilder: FormBuilder,
+        private rest: RestService,
+        private auth: AuthService
+    ) {
     this.loginForm = this.formbuilder.group({
       email: [null, [Validators.email, Validators.required]],
       password: [null, [Validators.required, Validators.minLength(6)]]
@@ -18,11 +26,18 @@ export class LoginComponent implements OnInit {
       // es6 syntax for functions. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
       console.log(this.loginForm.value );
     })
+
   }
 
   login(): void {
-
-    console.log(this.loginForm.value, "Login clicked");
+    // Authenticate -> then go to main page.
+    // api.fcctracker.com/auth
+    console.log(this.loginForm.value, 'Login clicked');
+    this.rest.post(`${environment.apiURL}/auth`,this.loginForm.value)
+    .then( (res) => {
+      console.log(res);
+    });
+    
   }
 
   ngOnInit() {

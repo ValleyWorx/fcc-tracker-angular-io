@@ -1,20 +1,25 @@
-<page-header></page-header>
+<app-navbar></app-navbar>
 
 <div class="container-fluid">
   <div class="row d-flex justify-content-center align-items-center fullscreen">
     <form [formGroup]="loginForm">
       <h2 class="text-center mb-4">Log in</h2>
-        <!-- eventually replace with Chelsea's components v -->
-          <input formControlName="email" type="email" id="emailtest">
           <label for="emailtest">Email: </label>
-          <input formControlName="password" type="password" id="passwordtest">
+          <input formControlName="email" type="email" id="emailtest"><br>
           <label for="passwordtest">Password: </label>
-          <button [disabled]="!loginForm.valid" (click)="login()" type="button">Login</button>
-        <!-- ^ ^ -->
+          <input formControlName="password" type="password" id="passwordtest"><br>
+
+          <!-- Pull button-primary component -->
+          <app-button-primary
+            [disabled]="!loginForm.valid"
+            (click)="login()"
+            type="button"
+            text="Login"
+          ></app-button-primary>
 
 
     </form>
   </div>
 </div>
 
-<page-footer></page-footer>
+<app-page-footer></app-page-footer>
