@@ -1,1 +1,44 @@
-/* You can add global styles to this file, and also import other style files */
+/**
+ * Fonts
+ */
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
+
+/**
+ * Variables
+ * @type {String}
+ */
+$font: 'Lato';
+$dark-green: #006400;
+
+/**
+ * Global helpers
+ */
+body,
+html {
+  font-family: $font;
+}
+
+/**
+ * Height helpers
+ */
+.fullscreen {
+  min-height: 100vh;
+}
+
+/**
+ * Overwrite MDBootstrap focus colors
+ */
+input[type='number']:focus:not([readonly]) + label,
+input[type='text']:focus:not([readonly]) + label,
+input[type='email']:focus:not([readonly]) + label,
+input[type='password']:focus:not([readonly]) + label {
+  color: $dark-green;
+}
+
+input[type='number']:focus:not([readonly]),
+input[type='text']:focus:not([readonly]),
+input[type='email']:focus:not([readonly]),
+input[type='password']:focus:not([readonly]) {
+  border-bottom: 1px solid $dark-green;
+  box-shadow: 0 1px 0 0 $dark-green;
+}
