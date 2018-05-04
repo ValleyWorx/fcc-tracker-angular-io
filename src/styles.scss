@@ -137,6 +137,10 @@ input[type='password']:focus:not([readonly]) {
 color: $error-color;
 }
 
+.text-green {
+  color: $hover-color !important;
+}
+
 .text-hover:hover {
 color: $hover-color !important;
 }

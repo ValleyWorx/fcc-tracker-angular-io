@@ -1,8 +1,15 @@
 <app-navbar></app-navbar>
 
 
-<div class="container-fluid">
+<div class="container-fluid fullscreen">
   <div class="row d-flex justify-content-center align-items-center fullscreen">
+    <div *ngIf="isLoading">
+      <!-- <i class="fa fa-spin fa-cog"></i> -->
+            <i class="fa slow-spin" >
+              <img src="assets/res/think.png" style="max-width: 48px;">
+            </i>
+    </div >
+    <div *ngIf="!isLoading">
     <form [formGroup]="LoginForm">
       <h2 class="text-center mb-4">Register</h2>
         <p *ngIf="ErrorMessage" class="text-red">{{ErrorMessage}}</p>
@@ -13,17 +20,17 @@
 
       <div class="md-form">
         <input mdbActive type="password" formControlName="password" id="password" class="form-control">
-        <label for="email" class="">Password</label>
+        <label for="password" class="">Password</label>
       </div>
 
       <div class="md-form">
         <input mdbActive type="password" formControlName="repassword" id="repassword" class="form-control">
-        <label for="email" class="">Re-enter Password</label>
+        <label for="repassword" class="">Re-enter Password</label>
       </div>
 
       <div class="md-form">
         <input mdbActive type="text" formControlName="uname" id="uname" class="form-control">
-        <label for="email" class="">FCC ID</label>
+        <label for="uname" class="">FCC ID</label>
       </div>
 
       <p> Already have an account? <a class="text-hover">Log In</a></p>
@@ -38,6 +45,9 @@
       Re-enter Password: <input formControlName="repassword" type="password" name="repassword"><br>
       FreeCodeCamp Username or Hash <input formControlName="uname" type="text" name="uname"><br> -->
       <app-button-primary [disabled]="!formIsValid()" (click)="register()" text="Register"></app-button-primary>
+
+
+
     </form>
 
 
