@@ -15,7 +15,8 @@ export class RegisterComponent implements OnInit {
     this.LoginForm = this.fb.group ({
       email: ['', [Validators.email, Validators.required]],
       password: ['', [Validators.required]],
-      repassword: ['', [Validators.required]]
+      repassword: ['', [Validators.required]],
+      uname: ['', [Validators.required]]
     });
 
     this.LoginForm.valueChanges.subscribe(() => {
@@ -25,8 +26,8 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  register(): void {
+//make sure you remove the 'console.log(this.LoginForm.value);' when done testing
+  register(): void { console.log(this.LoginForm.value);
 
   }
 

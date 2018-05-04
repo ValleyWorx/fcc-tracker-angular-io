@@ -1,13 +1,48 @@
+<app-navbar></app-navbar>
+
+
 <div class="container-fluid">
   <div class="row d-flex justify-content-center align-items-center fullscreen">
     <form [formGroup]="LoginForm">
       <h2 class="text-center mb-4">Register</h2>
-      Email Address:  <input formControlName="email" type="text" name="email" value="john@example.com"><br>
+        <p *ngIf="ErrorMessage" class="text-red">{{ErrorMessage}}</p>
+      <div class="md-form">
+        <input mdbActive type="text" formControlName="email" id="email" class="form-control">
+        <label for="email" class="">Email</label>
+      </div>
+
+      <div class="md-form">
+        <input mdbActive type="password" formControlName="password" id="password" class="form-control">
+        <label for="email" class="">Password</label>
+      </div>
+
+      <div class="md-form">
+        <input mdbActive type="password" formControlName="repassword" id="repassword" class="form-control">
+        <label for="email" class="">Re-enter Password</label>
+      </div>
+
+      <div class="md-form">
+        <input mdbActive type="text" formControlName="uname" id="uname" class="form-control">
+        <label for="email" class="">FCC ID</label>
+      </div>
+
+      <p> Already have an account? <a class="text-hover">Log In</a></p>
+
+
+
+
+
+
+      <!--Email Address:  <input formControlName="email" type="text" name="email" value="john@example.com"><br>
       Password: <input formControlName="password" type="password" name="password"><br>
       Re-enter Password: <input formControlName="repassword" type="password" name="repassword"><br>
-      <button [disabled]="!formIsValid()" (click)="register()">Register</button>
+      FreeCodeCamp Username or Hash <input formControlName="uname" type="text" name="uname"><br> -->
+      <app-button-primary [disabled]="!formIsValid()" (click)="register()" text="Register"></app-button-primary>
     </form>
 
-    <p *ngIf="ErrorMessage">{{ErrorMessage}}</p>
+
   </div>
 </div>
+
+
+<app-page-footer></app-page-footer>
