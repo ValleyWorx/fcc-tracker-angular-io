@@ -1,0 +1,22 @@
+@import "../../styles";
+@import "../button-primary/button-primary.component";
+i{
+  font-size: 20px;
+}
+.slow-spin {
+  -webkit-animation: fa-spin 5s infinite linear;
+  animation: fa-spin 5s infinite linear;
+}
+// .app-button-primary{
+//   border-radius: 15px;
+//   box-shadow: 2px $dark-grey;
+//   background-color: $green;
+//   color: $white;
+//   padding: 7px;
+// }
+
+
+$disabledTint: #802080;
+.buttondisabled{
+  background-color: $green + $disabledTint;
+}

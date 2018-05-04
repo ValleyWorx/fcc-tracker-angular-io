@@ -2,56 +2,67 @@
 
 <div class="container-fluid fullscreen">
   <div class="row d-flex justify-content-center align-items-center fullscreen">
+
     <div *ngIf="isLoading">
-      <!-- <i class="fa fa-spin fa-cog"></i> -->
+      <div class="row"> <div class="col">
             <i class="fa slow-spin" >
               <img src="assets/res/think.png" style="max-width: 48px;">
             </i>
-    </div >
-    <div *ngIf="!isLoading">
-    <form [formGroup]="loginForm">
-      <h2 class="text-center mb-4">Log in</h2>
-      <!-- <p *ngIf="ErrorMessage" class="text-red">{{ErrorMessage}}</p> -->
+      </div> </div>
 
+      <div class="row" > <div class="col">
+          <p>{{loadingMessage()}}</p>
+      </div> </div>
 
-      <div class="md-form">
-        <input
-          mdbActive
-          formControlName="email"
-          type="text"
-          id="email"
-          class="form-control">
-        <label
-          for="email"
-          class=""
-          >Email </label>
+    </div>
+
+    <div class="row" *ngIf="!isLoading"> <div class="col">
+        <form [formGroup]="loginForm">
+          <h2 class="text-center mb-4">Log in</h2>
+          <p *ngIf="errorMessage" class="text-red">{{errorMessage}}</p>
+          <div class="md-form">
+            <input
+              mdbActive
+              formControlName="email"
+              type="text"
+              id="email"
+              class="form-control">
+            <label
+              for="email"
+              class=""
+              >Email </label>
+          </div>
+          <div class="md-form">
+            <input
+              mdbActive
+              formControlName="password"
+              type="password"
+              id="password"
+              class="form-control">
+            <label
+              for="password"
+              class=""
+              >Password: </label>
+          </div>
+          <!-- Pull button-primary component -->
+          <!-- <app-button-primary
+            (click)="login()"
+            type="button"
+            text="Login"
+          ></app-button-primary> -->
+
+          <!-- ignoring the button component because onclick is bound to the *component* and not the elements in the component -->
+          <button
+            (click)="login()"
+            class="app-button-primary"
+            type="button"
+            [ngClass]="{'buttondisabled' : isLoginButtonDisabled}"
+          >Login</button>
+        </form>
       </div>
-
-
-      <div class="md-form">
-        <input
-          mdbActive
-          formControlName="password"
-          type="password"
-          id="password"
-          class="form-control">
-        <label
-          for="password"
-          class=""
-          >Password: </label>
-      </div>
-
-
-      <!-- Pull button-primary component -->
-      <app-button-primary
-        [disabled]="!loginForm.valid"
-        (click)="login()"
-        type="button"
-        text="Login"
-      ></app-button-primary>
-    </form>
     </div>
   </div>
 </div>
+
 
 <app-page-footer></app-page-footer>

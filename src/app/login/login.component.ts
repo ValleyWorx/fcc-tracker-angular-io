@@ -7,11 +7,13 @@ import { environment } from '../../environments/environment';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
   public isLoading: boolean;
+  public errorMessage: string = "No data entered";
+  public isLoginButtonDisabled: boolean = true;
   constructor(
         //aliases. Class-level variables.
         private formbuilder: FormBuilder,
@@ -24,7 +26,8 @@ export class LoginComponent implements OnInit {
     })
     this.loginForm.valueChanges.subscribe(() => {
       // es6 syntax for functions. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
-      console.log(this.loginForm.value );
+      this.checkForErrors();
+      this.disableLoginButton();
     })
     this.isLoading = false;
 
@@ -42,9 +45,34 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  checkForErrors() : void {
+    const form = this.loginForm.controls;
+    let errorFound: boolean = false;
+
+    if (!form.email.valid){
+      this.errorMessage = "This is not a valid email address";
+      errorFound = true;
+    } else if (!form.password.valid) {
+      this.errorMessage = "Your password is too short";
+      errorFound = true;
+    } else {
+      errorFound = false;
+    }
+
+    if (!errorFound){
+      this.errorMessage = null;
+    }
+  }
+
+  //return true if the button is to be disabled
+  disableLoginButton(): void{
+    this.isLoginButtonDisabled = (!this.loginForm.valid || this.errorMessage) ? true: false;
+    console.log("disabled: " + this.isLoginButtonDisabled);
+  }
+
   loadingMessage() : string{
       if (this.isLoading === true){
-        return "truuuuuuuuuuuu";
+        return "thinking...";
       }
       else{
         return "";
