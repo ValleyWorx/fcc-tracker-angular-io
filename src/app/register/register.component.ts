@@ -10,6 +10,7 @@ export class RegisterComponent implements OnInit {
   public LoginForm: FormGroup
   public ErrorMessage: string = null;
   public PasswordsValid: boolean = false;
+  public isLoading: boolean;
 
   constructor(public fb: FormBuilder) {
     this.LoginForm = this.fb.group ({
@@ -22,15 +23,24 @@ export class RegisterComponent implements OnInit {
     this.LoginForm.valueChanges.subscribe(() => {
       this.generateErrorMsg();
     })
+
+    this.LoginForm.valueChanges.subscribe(() => {
+      this.generateLoadingMsg();
+    })
   }
 
   ngOnInit() {
   }
 //make sure you remove the 'console.log(this.LoginForm.value);' when done testing
   register(): void { console.log(this.LoginForm.value);
+  this.isLoading = true;
+
 
   }
-
+  generateLoadingMsg(): void {
+    const form = this.LoginForm.controls
+    let errorFound: boolean = false;
+  }
   generateErrorMsg(): void {
     const form = this.LoginForm.controls
     let errorFound: boolean = false;

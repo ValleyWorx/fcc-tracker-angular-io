@@ -18,11 +18,24 @@ html {
   font-family: $font;
 }
 
+.container-fluid {
+  margin-top: 75px;
+}
+
+.navbar {
+  background-color: $dark-green !important;
+  color: #fff !important;
+}
+
+.fa.fa-navicon {
+  color: white;
+}
+
 /**
  * Height helpers
  */
 .fullscreen {
-  min-height: 100vh;
+  min-height: calc(100vh - 90px);
 }
 
 $hover-color: #00c851;
@@ -122,6 +135,10 @@ input[type='password']:focus:not([readonly]) {
 
 .text-red {
 color: $error-color;
+}
+
+.text-green {
+  color: $hover-color !important;
 }
 
 .text-hover:hover {
