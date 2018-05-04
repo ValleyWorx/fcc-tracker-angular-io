@@ -11,7 +11,7 @@ import { environment } from '../../environments/environment';
 })
 export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
-
+  public isLoading: boolean;
   constructor(
         //aliases. Class-level variables.
         private formbuilder: FormBuilder,
@@ -26,18 +26,29 @@ export class LoginComponent implements OnInit {
       // es6 syntax for functions. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
       console.log(this.loginForm.value );
     })
+    this.isLoading = false;
 
   }
 
   login(): void {
     // Authenticate -> then go to main page.
     // api.fcctracker.com/auth
+    this.isLoading = true;
+    setTimeout(() => {this.isLoading = false;}, 2000);
     console.log(this.loginForm.value, 'Login clicked');
     this.rest.post(`${environment.apiURL}/auth`,this.loginForm.value)
     .then( (res) => {
       console.log(res);
     });
-    
+  }
+
+  loadingMessage() : string{
+      if (this.isLoading === true){
+        return "truuuuuuuuuuuu";
+      }
+      else{
+        return "";
+      }
   }
 
   ngOnInit() {

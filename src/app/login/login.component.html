@@ -1,24 +1,56 @@
 <app-navbar></app-navbar>
 
-<div class="container-fluid">
+<div class="container-fluid fullscreen">
   <div class="row d-flex justify-content-center align-items-center fullscreen">
+    <div *ngIf="isLoading">
+      <!-- <i class="fa fa-spin fa-cog"></i> -->
+            <i class="fa slow-spin" >
+              <img src="assets/res/think.png" style="max-width: 48px;">
+            </i>
+    </div >
+    <div *ngIf="!isLoading">
     <form [formGroup]="loginForm">
       <h2 class="text-center mb-4">Log in</h2>
-          <label for="emailtest">Email: </label>
-          <input formControlName="email" type="email" id="emailtest"><br>
-          <label for="passwordtest">Password: </label>
-          <input formControlName="password" type="password" id="passwordtest"><br>
-
-          <!-- Pull button-primary component -->
-          <app-button-primary
-            [disabled]="!loginForm.valid"
-            (click)="login()"
-            type="button"
-            text="Login"
-          ></app-button-primary>
+      <!-- <p *ngIf="ErrorMessage" class="text-red">{{ErrorMessage}}</p> -->
 
 
+      <div class="md-form">
+        <input
+          mdbActive
+          formControlName="email"
+          type="text"
+          id="email"
+          class="form-control">
+        <label
+          for="email"
+          class=""
+          >Email </label>
+      </div>
+
+
+      <div class="md-form">
+        <input
+          mdbActive
+          formControlName="password"
+          type="password"
+          id="password"
+          class="form-control">
+        <label
+          for="password"
+          class=""
+          >Password: </label>
+      </div>
+
+
+      <!-- Pull button-primary component -->
+      <app-button-primary
+        [disabled]="!loginForm.valid"
+        (click)="login()"
+        type="button"
+        text="Login"
+      ></app-button-primary>
     </form>
+    </div>
   </div>
 </div>
 
