@@ -1,0 +1,9 @@
+@import "../../styles";
+
+button {
+  border-radius: 15px;
+  box-shadow: 2px $dark-grey;
+  background-color: $green;
+  color: $white;
+  padding: 7px;
+}

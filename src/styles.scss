@@ -44,6 +44,79 @@ input[type='email']:focus:not([readonly]),
 input[type='password']:focus:not([readonly]) {
   border-bottom: 1px solid $dark-green;
   box-shadow: 0 1px 0 0 $dark-green;
+
+
+
+  /*FCC STYLE GUIDE*/
+
+
+  //Colors
+  $dark-green: #006400;
+  $orange: #FF9C2A;
+  $red: #FF4025;
+  $blue: #3949AB;
+  $green: #007E00;
+  $light-orange: #FFAD25;
+  $light-red: #FF6D58;
+  $light-blue: #2DB9FF;
+  $purple: #BA68C8;
+  $yellow: #FFEE18;
+  $brown: #A4755F;
+  $grey: #E0E0E0;
+  $dark-grey: #939393;
+  $black: #2A2A2A;
+  $white: #FFFFFF;
+  $davys-grey: #555555;
+
+  //Fonts
+  @fontface{
+    font-family: lato-black;
+    src: url('/assets/res/Lato-Black.ttf');
+  }
+
+  @fontface{
+    font-family: lato-blackitalic;
+    src: url('/assets/res/Lato-BlackItalic.ttf');
+  }
+
+  @fontface{
+    font-family: lato-bold;
+    src: url('/assets/res/Lato-Bold.ttf');
+  }
+
+  @fontface{
+    font-family: lato-bolditalic;
+    src: url('/assets/res/Lato-BoldItalic.ttf');
+  }
+
+  @fontface{
+    font-family: lato-hairline;
+    src: url('/assets/res/Lato-Hairline.ttf');
+  }
+
+  @fontface{
+    font-family: lato-hairlineitalic;
+    src: url('/assets/res/Lato-HairlineItalic.ttf');
+  }
+
+  @fontface{
+    font-family: lato-italic;
+    src: url('/assets/res/Lato-Italic.ttf');
+  }
+
+  @fontface{
+    font-family: lato-light;
+    src: url('/assets/res/Lato-Light.ttf');
+  }
+
+  @fontface{
+    font-family: lato-lightitalic;
+    src: url('/assets/res/Lato-LightItalic.ttf');
+  }
+
+  @fontface{
+    font-family: lato-Regular;
+    src: url('/assets/res/Lato-Regular.ttf');
 }
 
 .text-red {

@@ -1,0 +1,23 @@
+@import "../../styles";
+
+nav {
+  background-color: $dark-green;
+  color: $white;
+}
+
+.nav-item {
+  background-color: $dark-green;
+  color: $white;
+}
+
+a {
+  color: $white;
+}
+
+:hover {
+  color: $dark-grey;
+}
+
+.fa.fa-navicon {
+  color: white;
+}

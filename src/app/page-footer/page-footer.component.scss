@@ -1,0 +1,16 @@
+@import "../../styles";
+
+li {
+  list-style-type: none;
+}
+
+li :hover{
+  color: $dark-grey;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  background-color: $dark-green;
+  color: $white;
+}
