@@ -18,6 +18,16 @@ html {
   font-family: $font;
 }
 
+.container-fluid{
+  margin-top: 75px;
+}
+
+.navbar {
+  background-color: $dark-green !important;
+  color: #fff !important;
+}
+
+
 /**
  * Height helpers
  */
