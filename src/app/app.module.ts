@@ -26,9 +26,11 @@ import { JWTService } from './services/jwt.service';
 
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const appRoutes: Routes = [
-  { path: '', component: AppComponent },
+  { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent }
 ];
@@ -41,7 +43,9 @@ const appRoutes: Routes = [
     TextInputComponent,
     NavbarComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
