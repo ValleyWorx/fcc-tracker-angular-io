@@ -1,7 +1,7 @@
 
 <nav class="navbar navbar-expand-lg">
   <div id="logo">
-    <a class="navbar-brand" href="#"><img height="64" width="64" src="../assets/res/glyph.jpg" /></a>
+    <a class="navbar-brand" [routerLinke]="['/home']"><img height="64" width="64" src="../assets/res/glyph.jpg" /></a>
   </div>
   <button class="navbar-toggler" type="button" data-toggle="collapse"
     data-target="#navbarFCC" aria-controls="navbarFCC"
@@ -13,8 +13,8 @@
   <div class="collapse navbar-collapse" id="navbarFCC" [mdbCollapse]="isCollapsed"
   #needsCollapse="bs-collapse" (showBsCollapse)="showBsCollapse()" (shownBsCollapse)="shownBsCollapse()"
   (hideBsCollapse)="hideBsCollapse()" (hiddenBsCollapse)="hiddenBsCollapse()">
-      <a *ngIf="!authService.loggedIn()" class="nav-item nav-link" href="#">Login <span class="sr-only">(current)</span></a>
-      <a *ngIf="!authService.loggedIn()" class="nav-item nav-link" href="#">Register</a>
-      <a *ngIf="authService.loggedIn()" class="nav-item nav-link" href="#">Profile</a>
+      <a *ngIf="!authService.loggedIn()" class="nav-item nav-link" [routerLink]="['/login']">Login <span class="sr-only">(current)</span></a>
+      <a *ngIf="!authService.loggedIn()" class="nav-item nav-link" [routerLink]="['/register']">Register</a>
+      <a *ngIf="authService.loggedIn()" class="nav-item nav-link" [routerLink]="['/profile']">Profile</a>
   </div>
 </nav>

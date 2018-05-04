@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +9,8 @@ import { AuthService } from '../services/auth.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private authService:AuthService) { }
+  constructor(private authService:AuthService,
+              private router:Router) { }
 
   visible:boolean;
   isCollapsed:boolean;
@@ -19,16 +21,5 @@ export class NavbarComponent implements OnInit {
     this.isCollapsed = true;
 
   }
-
-  /*toggleNav(){
-
-    if (!this.visible){
-      document.getElementById("navbarFCC").style.display = "block";
-      this.visible = true;
-    } else {
-      document.getElementById("navbarFCC").style.display = "none";
-      this.visible = false;
-    }
-  }*/
 
 }
