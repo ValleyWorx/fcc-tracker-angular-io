@@ -1,0 +1,59 @@
+<app-navbar></app-navbar>
+  <div class="container-fluid fullscreen">
+
+
+    <div class="row d-flex justify-content-center align-items-center fullscreen">
+      <div *ngIf="name">
+        <!-- <i class="fa fa-spin fa-cog"></i> -->
+              <i class="fa slow-spin" >
+                <img src="assets/res/think.png" style="max-width: 48px;">
+              </i>
+      </div >
+    </div>
+  <div *ngIf="!name">
+
+      <div class="row">
+          <div class="container">
+                <h1>Whoops!</h1>
+                <p>404 - Page not found</p>
+                <p>
+                    One of our interns must be fired for this unacceptable failure!
+                </p>
+      </div>
+  </div>
+
+
+
+                <div class="row">
+                      <div class="col-md-3">
+                              <app-button-primary class = "btn-block"(click)="checkNames()" text="Taylor"></app-button-primary>
+                      </div>
+
+
+                      <div class="col-md-3">
+                          <app-button-primary (click)="checkNames()" text="Chelsea"></app-button-primary>
+                      </div>
+
+
+                      <div class="col-md-3">
+                          <app-button-primary (click)="checkNames()" text="Luke"></app-button-primary>
+                      </div>
+
+
+                      <div class="col-md-3">
+                          <app-button-primary (click)="checkNames()" text="Siegfried"></app-button-primary>
+                      </div>
+
+                </div>
+
+                <div class="initial">
+                    In a forgiving mood? Let them all keep their jobs.
+                </div>
+
+
+                <div>
+                    Return to the <a href="/">homepage</a>.
+                </div>
+</div>
+
+<app-page-footer></app-page-footer>

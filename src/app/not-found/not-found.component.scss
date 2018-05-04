@@ -1,0 +1,25 @@
+@import "../../styles";
+
+li {
+  list-style-type: none;
+}
+
+li :hover{
+  color: $dark-grey;
+}
+
+div.absolute {
+    position: absolute;
+    width: 50%;
+    bottom: 10px;
+    border: 3px solid #8AC007;
+}
+
+
+
+
+background-image  {
+    background-image: url("https://guntensperger.com/404-page_web-res.jpg
+");
+    background-color: #cccccc;
+}
