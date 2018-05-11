@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { RestService } from '../services/rest.service';
+
 
 @Component({
   selector: 'app-register',
@@ -12,7 +14,11 @@ export class RegisterComponent implements OnInit {
   public PasswordsValid: boolean = false;
   public isLoading: boolean;
 
-  constructor(public fb: FormBuilder) {
+
+  constructor(
+    public fb: FormBuilder,
+    private rest: RestService
+) {
     this.LoginForm = this.fb.group ({
       email: ['', [Validators.email, Validators.required]],
       password: ['', [Validators.required]],

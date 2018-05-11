@@ -34,7 +34,9 @@ const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'not-found', component: NotFoundComponent }
+  { path: 'not-found', component: NotFoundComponent },
+  { path: '**',  component: NotfoundComponent },
+
 
 ];
 
