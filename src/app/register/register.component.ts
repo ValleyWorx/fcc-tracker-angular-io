@@ -35,6 +35,13 @@ export class RegisterComponent implements OnInit {
   register(): void { console.log(this.LoginForm.value);
   this.isLoading = true;
 
+  this.rest.post(`${environment.apiURL}/auth`,this.LoginForm.value)
+  .then( (res) => {
+    console.log(res);
+  });
+
+
+
 
   }
   generateLoadingMsg(): void {
@@ -61,6 +68,8 @@ export class RegisterComponent implements OnInit {
     if (!errorFound) {
       this.ErrorMessage = null;
     }
+
+
   }
 
   formIsValid(): boolean {
