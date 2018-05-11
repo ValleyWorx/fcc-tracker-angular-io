@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
+  altapiURL: 'https://api.fcctrackerapi.com',
   apiURL: 'https://fcctrackerapi.herokuapp.com'
 };

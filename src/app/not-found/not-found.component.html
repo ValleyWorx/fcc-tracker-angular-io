@@ -4,10 +4,13 @@
 
     <div class="row d-flex justify-content-center align-items-center fullscreen">
 
-      <div *ngIf="name">
-              <i class="fa slow-spin" >
+      <div class="container justify-content-center align-items-center d-flex" *ngIf="name">
+        <div>
+              <i class="fa slow-spin justify-content-center mx-auto" >
                 <img src="assets/res/think.png" style="max-width: 48px;">
               </i>
+              <p>{{statement}}</p>
+            </div>
       </div >
       <div *ngIf="!name">
         <div class="row">

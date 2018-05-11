@@ -6,7 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./not-found.component.scss']
 })
 export class NotFoundComponent implements OnInit {
+
   name :string = null;
+  statement: string = null;
+
+
   constructor() { }
 
   ngOnInit() {
@@ -14,7 +18,11 @@ export class NotFoundComponent implements OnInit {
 
   checkNames(_name) : void {
     this.name = _name;
-
+    this.statement = "sending pink slip"
+    setTimeout(()=> {
+      this.name = null;
+      this.statement = null;
+    }, 2000)
   }
 
 }
