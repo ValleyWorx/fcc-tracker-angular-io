@@ -192,7 +192,14 @@ export class RestService {
    */
   handleError(serverError: any): void {
     this._error = true;
-    this._errorMsg = JSON.parse(serverError._body).message;
+    try {
+      this._errorMsg = JSON.parse(serverError._body).message;
+
+    } catch(e){
+      this._errorMsg = (serverError._body);
+    }
+
+    
     console.log('Caught', this.errorMsg);
     this.router.navigate(['/login']);
   }

@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { RestService } from '../services/rest.service';
 import { environment } from '../../environments/environment';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -20,7 +21,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private auth: AuthService,
     public fb: FormBuilder,
-    private rest: RestService
+    private rest: RestService,
+    private router: Router
 ) {
     this.LoginForm = this.fb.group ({
       fname: ['', [Validators.required]],
@@ -63,9 +65,12 @@ export class RegisterComponent implements OnInit {
             role: resp.role
           })
 
+
+
           this.auth.setToken(resp.jwt);
           this.auth.setRefresh(resp.refreshToken);
-          this.auth.setExpires(resp.expires)
+          this.auth.setExpires(resp.expires);
+          this.router.navigate(["/profile"]);
         console.log(resp);
         })
       });

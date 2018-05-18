@@ -1,3 +1,14 @@
+<ng-container *ngIf="isLoading">
+<i class="fa fa-spin fa-refresh"></i>
+</ng-container>
+
+
+
+<ng-container *ngIf="!isLoading">
 <p>
-  profile works!
+Hello, {{auth.getUser().fname}}! Here are your stats:
 </p>
+
+
+<p *ngFor="let s of stuff"> {{ s.type }}: {{ s.total }}</p>
+</ng-container>

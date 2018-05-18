@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA, ViewChild } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, Router } from '@angular/router';
 import { Injectable, ViewContainerRef } from '@angular/core';
 import {
   Http,
@@ -9,7 +9,6 @@ import {
   RequestOptions
 } from '@angular/http';
 
-import { Router } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -35,6 +34,7 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'not-found', component: NotFoundComponent },
+  { path: 'profile', component: ProfileComponent },
   { path: '**',  component: NotFoundComponent }
 
 
