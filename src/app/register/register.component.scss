@@ -1,0 +1,20 @@
+
+$dark-green: #006400;
+
+/**
+ * Overwrite MDBootstrap focus colors
+ */
+input[type='number']:focus:not([readonly]) + label,
+input[type='text']:focus:not([readonly]) + label,
+input[type='email']:focus:not([readonly]) + label,
+input[type='password']:focus:not([readonly]) + label {
+  color: $dark-green;
+}
+
+input[type='number']:focus:not([readonly]),
+input[type='text']:focus:not([readonly]),
+input[type='email']:focus:not([readonly]),
+input[type='password']:focus:not([readonly]) {
+  border-bottom: 1px solid $dark-green;
+  box-shadow: 0 1px 0 0 $dark-green;
+}

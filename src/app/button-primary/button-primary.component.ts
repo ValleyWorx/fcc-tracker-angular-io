@@ -7,10 +7,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ButtonPrimaryComponent implements OnInit {
   @Input('text') _text: string;
+  @Input() disabled?: boolean;
 
   constructor() { }
 
   ngOnInit() {
+    console.log("This is disabled", this.disabled);
   }
 
 }

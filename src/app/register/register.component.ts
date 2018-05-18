@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { AuthService } from '../services/auth.service';
 import { RestService } from '../services/rest.service';
 import { environment } from '../../environments/environment';
 
@@ -7,7 +8,7 @@ import { environment } from '../../environments/environment';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
   public LoginForm: FormGroup
@@ -17,14 +18,17 @@ export class RegisterComponent implements OnInit {
 
 
   constructor(
+    private auth: AuthService,
     public fb: FormBuilder,
     private rest: RestService
 ) {
     this.LoginForm = this.fb.group ({
+      fname: ['', [Validators.required]],
+      lname: ['', [Validators.required]],
       email: ['', [Validators.email, Validators.required]],
       password: ['', [Validators.required]],
       repassword: ['', [Validators.required]],
-      uname: ['', [Validators.required]]
+      fccCode: ['', [Validators.required]]
     });
 
     this.LoginForm.valueChanges.subscribe(() => {
@@ -39,13 +43,34 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 //make sure you remove the 'console.log(this.LoginForm.value);' when done testing
-  register(): void { console.log(this.LoginForm.value);
-  this.isLoading = true;
 
-  this.rest.post(`${environment.apiURL}/auth`,this.LoginForm.value)
-  .then( (res) => {
-    console.log(res);
-  });
+
+  register(): void { console.log(this.LoginForm.value);
+    if (this.formIsValid()){
+      this.isLoading = true;
+
+      this.rest.post(`${environment.apiURL}/user/register`,this.LoginForm.value)
+      .then( (res) => {
+        console.log(res);
+
+        this.rest.post(`${environment.apiURL}/auth`,this.LoginForm.value)
+        .then( (resp) => {
+
+          this.auth.setUser({
+            fname: resp.fname,
+            id: resp.id,
+            lname: resp.lname,
+            role: resp.role
+          })
+
+          this.auth.setToken(resp.jwt);
+          this.auth.setRefresh(resp.refreshToken);
+          this.auth.setExpires(resp.expires)
+        console.log(resp);
+        })
+      });
+    }
+
 
 
 

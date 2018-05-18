@@ -13,6 +13,17 @@
     <form [formGroup]="LoginForm">
       <h2 class="text-center mb-4">Register</h2>
         <p *ngIf="ErrorMessage" class="text-red">{{ErrorMessage}}</p>
+
+        <div class="md-form">
+          <input mdbActive type="text" formControlName="fname" id="fname" class="form-control">
+          <label for="fname" class="">First Name</label>
+        </div>
+
+        <div class="md-form">
+          <input mdbActive type="text" formControlName="lname" id="lname" class="form-control">
+          <label for="lname" class="">Last Name</label>
+        </div>
+
       <div class="md-form">
         <input mdbActive type="text" formControlName="email" id="email" class="form-control">
         <label for="email" class="">Email</label>
@@ -29,8 +40,8 @@
       </div>
 
       <div class="md-form">
-        <input mdbActive type="text" formControlName="uname" id="uname" class="form-control">
-        <label for="uname" class="">FCC ID</label>
+        <input mdbActive type="text" formControlName="fccCode" id="fccCode" class="form-control">
+        <label for="fccCode" class="">FCC ID</label>
       </div>
 
       <p> Already have an account? <a class="text-hover">Log In</a></p>
