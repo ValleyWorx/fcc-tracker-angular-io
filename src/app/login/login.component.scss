@@ -20,3 +20,22 @@ $disabledTint: #D02070;
 .disabled{
   background-color: $light-red;
 }
+
+
+/**
+ * Override input focus border color
+ */
+input[type='text']:focus:not([readonly]) + label,
+input[type='date']:focus:not([readonly]) + label,
+input[type='email']:focus:not([readonly]) + label,
+input[type='password']:focus:not([readonly]) + label {
+  color: $hover-color;
+}
+
+input[type='text']:focus:not([readonly]),
+input[type='date']:focus:not([readonly]),
+input[type='email']:focus:not([readonly]),
+input[type='password']:focus:not([readonly]) {
+  border-bottom: 1px solid $hover-color;
+  box-shadow: 0 1px 0 0 $hover-color;
+}
