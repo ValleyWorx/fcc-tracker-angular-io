@@ -50,6 +50,9 @@ export class LoginComponent implements OnInit {
         lname: resp.lname,
         role: resp.role
       });
+      this.auth.setToken(resp.jwt);
+      this.auth.setRefresh(resp.refreshToken);
+      this.auth.setExpires(resp.expires);
       this.router.navigate(['/profile']);
     }).catch((err) => {
       console.log(err);

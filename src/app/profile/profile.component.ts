@@ -25,7 +25,9 @@ export class ProfileComponent implements OnInit {
       this.stuff = res.result;
 
       this.isLoading = false;
-    })
+    }).catch( (err) => {
+      console.log(err);
+    });
   }
 
 }
