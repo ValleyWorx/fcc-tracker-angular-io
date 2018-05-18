@@ -3,12 +3,14 @@ import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { RestService } from '../services/rest.service';
 import { AuthService } from '../services/auth.service';
 import { environment } from '../../environments/environment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
 export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
   public isLoading: boolean;
@@ -18,7 +20,8 @@ export class LoginComponent implements OnInit {
         //aliases. Class-level variables.
         private formbuilder: FormBuilder,
         private rest: RestService,
-        private auth: AuthService
+        private auth: AuthService,
+        private router: Router
     ) {
     this.loginForm = this.formbuilder.group({
       email: [null, [Validators.email, Validators.required]],
@@ -46,7 +49,8 @@ export class LoginComponent implements OnInit {
         id: resp.id,
         lname: resp.lname,
         role: resp.role
-      })
+      });
+      this.router.navigate(['/profile']);
     });
   }
 

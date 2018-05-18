@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-not-found',
@@ -11,7 +12,9 @@ export class NotFoundComponent implements OnInit {
   statement: string = null;
 
 
-  constructor() { }
+  constructor(
+    private router: Router;
+  ) {}
 
   ngOnInit() {
   }
@@ -22,6 +25,7 @@ export class NotFoundComponent implements OnInit {
     setTimeout(()=> {
       this.name = null;
       this.statement = null;
+      this.router.navigate(['']);
     }, 2000)
   }
 
