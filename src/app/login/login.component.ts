@@ -51,6 +51,9 @@ export class LoginComponent implements OnInit {
         role: resp.role
       });
       this.router.navigate(['/profile']);
+    }).catch((err) => {
+      console.log(err);
+      this.errorMessage = "User email and/or password is not valid.";
     });
   }
 
