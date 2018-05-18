@@ -13,7 +13,7 @@ export class NotFoundComponent implements OnInit {
 
 
   constructor(
-    private router: Router;
+    private router: Router
   ) {}
 
   ngOnInit() {
