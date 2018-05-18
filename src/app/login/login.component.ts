@@ -40,8 +40,13 @@ export class LoginComponent implements OnInit {
     setTimeout(() => {this.isLoading = false;}, 2000);
     console.log(this.loginForm.value, 'Login clicked');
     this.rest.post(`${environment.apiURL}/auth`,this.loginForm.value)
-    .then( (res) => {
-      console.log(res);
+    .then( (resp) => {
+      this.auth.setUser({
+        fname: resp.fname,
+        id: resp.id,
+        lname: resp.lname,
+        role: resp.role
+      })
     });
   }
 

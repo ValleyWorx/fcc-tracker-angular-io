@@ -1,4 +1,4 @@
-import { Injectable, ViewContainerRef } from '@angular/core';
+import { Injectable } from '@angular/core';
 import {
   Http,
   Headers,
@@ -7,10 +7,9 @@ import {
 } from '@angular/http';
 import { Router } from '@angular/router';
 
-import { Observable } from 'rxjs/Rx';
-import 'rxjs/add/operator/map';
-
 import { JWTService } from './jwt.service';
+
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class RestService {
@@ -40,17 +39,51 @@ export class RestService {
   }
 
   /**
+   * Generates a console log
+   * @param {string} type [get, post, put, delete]
+   * @param {string} url  [api url]
+   * @param {any}    data
+   */
+  generateLogs(type: string, url: string, data?: any): void {
+    console.log(
+      `%c ${type.toUpperCase()} API CALL TO`,
+      'background-color: #333; color: #98bccd;'
+    );
+
+    console.log(url);
+
+    console.log(`%c DATA RETURNED`, 'background-color: #333; color: #f5f5f5;');
+
+    console.table(data);
+  }
+
+  /**
    * Abstracts HTTP POST
    * @param  {string}       url
    * @param  {any}          body
    * @return {Promise<any>}
    */
   post(url: string, body?: any): Promise<any> {
-    return this.http
+    let promise: Promise<any>;
+
+    promise = this.http
       .post(url, body, this.buildOptions())
       .map(res => res.json())
       .toPromise()
       .catch(err => this.handleError(err));
+
+    if (!environment.production) {
+      promise.then(res => {
+        const log = {
+          url: url,
+          data: res
+        };
+
+        this.generateLogs('put', log.url, log.data);
+      });
+    }
+
+    return promise;
   }
 
   /**
@@ -59,11 +92,26 @@ export class RestService {
    * @return {Promise<any>}
    */
   get(url: string): Promise<any> {
-    return this.http
+    let promise: Promise<any>;
+
+    promise = this.http
       .get(url, this.buildOptions())
       .map(res => res.json())
       .toPromise()
       .catch(err => this.handleError(err));
+
+    if (!environment.production) {
+      promise.then(res => {
+        const log = {
+          url: url,
+          data: res
+        };
+
+        this.generateLogs('get', log.url, log.data);
+      });
+    }
+
+    return promise;
   }
 
   /**
@@ -72,10 +120,26 @@ export class RestService {
    * @return {Promise<any>}
    */
   delete(url: string): Promise<any> {
-    return this.http
+    let promise: Promise<any>;
+
+    promise = this.http
       .delete(url, this.buildOptions())
+      .map(res => res.json())
       .toPromise()
       .catch(err => this.handleError(err));
+
+    if (!environment.production) {
+      promise.then(res => {
+        const log = {
+          url: url,
+          data: res
+        };
+
+        this.generateLogs('delete', log.url, log.data);
+      });
+    }
+
+    return promise;
   }
 
   /**
@@ -84,12 +148,27 @@ export class RestService {
    * @param  {any}          body
    * @return {Promise<any>}
    */
-  put(url: string, body: any): Promise<any> {
-    return this.http
+  put(url: string, body?: any): Promise<any> {
+    let promise: Promise<any>;
+
+    promise = this.http
       .put(url, body, this.buildOptions())
       .map(res => res.json())
       .toPromise()
       .catch(err => this.handleError(err));
+
+    if (!environment.production) {
+      promise.then(res => {
+        const log = {
+          url: url,
+          data: res
+        };
+
+        this.generateLogs('put', log.url, log.data);
+      });
+    }
+
+    return promise;
   }
 
   /**
