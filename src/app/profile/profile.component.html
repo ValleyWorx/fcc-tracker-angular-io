@@ -1,14 +1,28 @@
-<ng-container *ngIf="isLoading">
-<i class="fa fa-spin fa-refresh"></i>
+<app-navbar></app-navbar>
+<ng-container *ngIf="isLoading" >
+  <div class="container-fluid">
+    <div class="row d-flex justify-content-center align-items-center fullscreen">
+      <div class="row"> <div class="col">
+            <i class="fa slow-spin" >
+              <img src="assets/res/think.png" style="max-width: 48px;">
+            </i>
+      </div> </div>
+      <div class="row" > <div class="col">
+          <p> Loading Profile...</p>
+      </div> </div>
+    </div>
+  </div>
 </ng-container>
 
-
-
-<ng-container *ngIf="!isLoading">
-<p>
-Hello, {{auth.getUser().fname}}! Here are your stats:
-</p>
-
-
-<p *ngFor="let s of stuff"> {{ s.type }}: {{ s.total }}</p>
-</ng-container>
+<div *ngIf="!isLoading" class="container-fluid" style="margin-top: 100px;">
+  <div class="row d-flex justify-content-center align-items-center fullscreen">
+  <!-- <div class="row d-flex align-items-center fullscreen"> -->
+    <div>
+      <p>
+        Hello, {{auth.getUser().fname}}! Here are your stats:
+      </p>
+      <p *ngFor="let s of stuff"> {{ s.type }}: {{ s.total }}</p>
+    </div>
+  </div>
+</div>
+<app-page-footer></app-page-footer>

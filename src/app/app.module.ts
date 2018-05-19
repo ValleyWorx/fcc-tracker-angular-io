@@ -25,6 +25,7 @@ import { JWTService } from './services/jwt.service';
 
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -32,11 +33,11 @@ import { NotFoundComponent } from './not-found/not-found.component';
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'logout', component: LogoutComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'not-found', component: NotFoundComponent },
   { path: 'profile', component: ProfileComponent },
   { path: '**',  component: NotFoundComponent }
-
 
 ];
 
@@ -49,6 +50,7 @@ const appRoutes: Routes = [
     NavbarComponent,
     RegisterComponent,
     LoginComponent,
+    LogoutComponent,
     HomeComponent,
     ProfileComponent,
     NotFoundComponent

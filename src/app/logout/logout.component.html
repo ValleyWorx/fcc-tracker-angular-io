@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+
+
+<div class="container-fluid fullscreen">
+  <div class="row d-flex justify-content-center align-items-center fullscreen">
+    <div>
+      <div class="row d-flex justify-content-center align-items-center">
+        <p>Are you sure you want to log out?</p>
+      </div>
+      <div class="row mx-auto d-flex justify-content-center align-items-center">
+        <button
+          (click)="home()"
+          class="app-button-primary LogoutButtons"
+          type="button"
+        >No, Go Back</button>
+        <button
+          (click)="logout()"
+          class="app-button-primary LogoutButtons Logout"
+          type="button"
+        >Yes, Log me out</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<app-page-footer></app-page-footer>

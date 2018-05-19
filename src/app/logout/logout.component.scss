@@ -1,0 +1,14 @@
+@import "../../styles";
+@import "../button-primary/button-primary.component";
+
+
+.LogoutButtons{
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.Logout{
+  background-color: $light-red;
+}

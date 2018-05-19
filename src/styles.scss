@@ -32,7 +32,7 @@ html {
  * Height helpers
  */
 .fullscreen {
-  min-height: calc(100vh - 90px);
+  min-height: calc(100vh - 98px);
 }
 
 $hover-color: #00c851;
@@ -136,4 +136,8 @@ color: $error-color;
 
 .text-hover:hover {
 color: $hover-color !important;
+}
+
+.page-header-margin {
+  margin-top: 100px;
 }

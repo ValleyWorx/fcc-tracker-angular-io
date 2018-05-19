@@ -2,7 +2,7 @@
 <div class="container-fluid fullscreen">
   <div class="row d-flex justify-content-center align-items-center fullscreen">
 
-    <div *ngIf="isLoading">
+    <ng-container *ngIf="isLoading">
       <div class="row"> <div class="col">
             <i class="fa slow-spin" >
               <img src="assets/res/think.png" style="max-width: 48px;">
@@ -13,7 +13,7 @@
           <p>{{loadingMessage()}}</p>
       </div> </div>
 
-    </div>
+    </ng-container>
 
     <div class="row" *ngIf="!isLoading"> <div class="col">
         <form [formGroup]="loginForm">
