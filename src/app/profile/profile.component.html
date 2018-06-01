@@ -15,14 +15,19 @@
 </ng-container>
 
 <div *ngIf="!isLoading" class="container-fluid" style="margin-top: 100px;">
-  <div class="row d-flex justify-content-center align-items-center fullscreen">
+  <div>
+    <p>Hello, {{auth.getUser().fname}}! Here are your stats:</p>
+  </div>
+  <div class="row d-flex justify-content-around align-items-center fullscreen">
   <!-- <div class="row d-flex align-items-center fullscreen"> -->
-    <div>
-      <p>
-        Hello, {{auth.getUser().fname}}! Here are your stats:
-      </p>
-      <p *ngFor="let s of stuff"> {{ s.type }}: {{ s.total }}</p>
+    <div class="col-xs-3">
+      <p *ngFor="let s of stuff"> {{ s.type }}: {{s.done}}/{{ s.total }}</p>
     </div>
+    <!-- <div class="col-xs-6">
+      <p>yeet</p>
+    </div> -->
+    <app-building>
+    </app-building>
   </div>
 </div>
 <app-page-footer></app-page-footer>

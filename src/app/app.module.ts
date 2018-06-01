@@ -29,6 +29,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { BuildingComponent } from './building/building.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -53,7 +54,8 @@ const appRoutes: Routes = [
     LogoutComponent,
     HomeComponent,
     ProfileComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    BuildingComponent
   ],
   imports: [
     BrowserModule,
