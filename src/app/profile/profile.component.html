@@ -20,14 +20,15 @@
   </div>
   <div class="row d-flex justify-content-around align-items-center fullscreen">
   <!-- <div class="row d-flex align-items-center fullscreen"> -->
-    <div class="col-xs-3">
-      <p *ngFor="let s of stuff"> {{ s.type }}: {{s.done}}/{{ s.total }}</p>
-    </div>
+
     <!-- <div class="col-xs-6">
       <p>yeet</p>
     </div> -->
-    <app-building>
+    <div *ngFor="let tower of towers">
+    <app-building progress={{tower.done}} total={{tower.total}}>
     </app-building>
+    <p> {{ tower.type }}: {{tower.done}}/{{ tower.total }}</p>
+  </div>
   </div>
 </div>
 <app-page-footer></app-page-footer>

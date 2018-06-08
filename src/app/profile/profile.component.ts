@@ -3,6 +3,12 @@ import { RestService } from '../services/rest.service';
 import { environment } from '../../environments/environment';
 import { AuthService} from '../services/auth.service';
 
+export interface Tower {
+  done:number;
+  total:number;
+  type:string;
+}
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -10,7 +16,7 @@ import { AuthService} from '../services/auth.service';
 })
 export class ProfileComponent implements OnInit {
 
-  public stuff: any[] = [];
+  public towers: Tower[] = [];
   public isLoading: boolean = true;
 
   constructor(
@@ -21,8 +27,12 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.rest.get(`${environment.apiURL}/user/scrape`)
     .then( (res) => {
-      console.log(res);
-      this.stuff = res.result;
+
+      for(let tower of res.result){
+        this.towers.push(tower);
+      }
+
+      console.log(this.towers);
 
       this.isLoading = false;
     }).catch( (err) => {

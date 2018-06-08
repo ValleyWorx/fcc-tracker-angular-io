@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   ) {
     this.loginForm = this.formbuilder.group({
       email: [null, [Validators.email, Validators.required]],
-      password: [null, [Validators.required, Validators.minLength(6)]]
+      password: [null, [Validators.required]]
     })
     this.loginForm.valueChanges.subscribe(() => {
       // es6 syntax for functions. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
